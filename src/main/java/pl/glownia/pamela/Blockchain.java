@@ -11,11 +11,13 @@ class Blockchain {
     }
 
     private List<Block> createBlockchain() {
+        int numberOfZeros = new Input().takeNumberFromUser();
         for (int i = 0; i < 5; i++) {
             if (i == 0) {
-                blockchain.add(BlockFactory.createInstance(i, "0"));
+                blockchain.add(BlockFactory.createInstance(i, numberOfZeros, "0"));
+            } else {
+                blockchain.add(BlockFactory.createInstance(i, numberOfZeros, blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock()));
             }
-            blockchain.add(BlockFactory.createInstance(i, blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock()));
         }
         return blockchain;
     }

@@ -5,6 +5,8 @@ import java.util.List;
 class Printer {
 
     static void printBlockchain(List<Block> blockchain) {
-        blockchain.forEach(System.out::println);
+        blockchain.stream()
+                .limit(5)
+                .forEach(System.out::println);
     }
 }

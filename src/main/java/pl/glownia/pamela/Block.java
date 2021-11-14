@@ -1,16 +1,18 @@
 package pl.glownia.pamela;
 
+import java.util.Date;
+
 class Block {
     private final int id;
     private final long timestamp;
     private final String hashOfPreviousBlock;
     private final String hashOfCurrentBlock;
 
-    Block(int id, long timestamp, String hashOfPreviousBlock, String hashOfCurrentBlock) {
+    Block(int id, String hashOfPreviousBlock) {
         this.id = id;
-        this.timestamp = timestamp;
+        this.timestamp = new Date().getTime();
         this.hashOfPreviousBlock = hashOfPreviousBlock;
-        this.hashOfCurrentBlock = hashOfCurrentBlock;
+        this.hashOfCurrentBlock = HashGenerator.generateHashOfBlock(HashGenerator.getTextToHash(id));
     }
 
     String getHashOfPreviousBlock() {
@@ -20,6 +22,7 @@ class Block {
     String getHashOfCurrentBlock() {
         return hashOfCurrentBlock;
     }
+
 
     @Override
     public String toString() {

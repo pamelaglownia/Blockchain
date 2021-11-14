@@ -12,7 +12,10 @@ class Blockchain {
 
     private List<Block> createBlockchain() {
         for (int i = 0; i < 5; i++) {
-            blockchain.add(BlockFactory.createInstance(i));
+            if (i == 0) {
+                blockchain.add(BlockFactory.createInstance(i, "0"));
+            }
+            blockchain.add(BlockFactory.createInstance(i, blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock()));
         }
         return blockchain;
     }

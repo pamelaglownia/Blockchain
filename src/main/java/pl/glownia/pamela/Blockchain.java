@@ -17,9 +17,11 @@ class Blockchain {
         for (int i = 0; i < 5; i++) {
             if (i == 0) {
                 blockchain.add(BlockFactory.createInstance(i, numberOfZeros, "0", startTime, Instant.now()));
+
             } else {
                 blockchain.add(BlockFactory.createInstance(i, numberOfZeros, blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock(), startTime, Instant.now()));
             }
+            BlockFactory.writeFile(blockchain.get(i));
         }
         return blockchain;
     }

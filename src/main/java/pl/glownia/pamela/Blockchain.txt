@@ -1,0 +1,45 @@
+Block:
+Id: 1
+Timestamp: 1637002038327
+Magic number: 571423728
+Hash of the previous block:
+0
+Hash of the block:
+00b0be363fe3414d780a024375e355d0ada6695f575028f75c4ea056e763d1cd
+Block was generating for 1 seconds
+Block:
+Id: 2
+Timestamp: 1637002038473
+Magic number: 1345046413
+Hash of the previous block:
+00b0be363fe3414d780a024375e355d0ada6695f575028f75c4ea056e763d1cd
+Hash of the block:
+00989c46d55e08ae54f0c55a225c5f55c571c5ec441af3962f5f510c40f980f1
+Block was generating for 2 seconds
+Block:
+Id: 3
+Timestamp: 1637002038477
+Magic number: 1017028861
+Hash of the previous block:
+00989c46d55e08ae54f0c55a225c5f55c571c5ec441af3962f5f510c40f980f1
+Hash of the block:
+00cc85a8315584be1ed24457a136295b1e3c459b33f4bee792204c7112a28f5f
+Block was generating for 2 seconds
+Block:
+Id: 4
+Timestamp: 1637002038480
+Magic number: 378525148
+Hash of the previous block:
+00cc85a8315584be1ed24457a136295b1e3c459b33f4bee792204c7112a28f5f
+Hash of the block:
+00f066f6325aabb2882b96640e789fb4e987c4ce6d30f5f5f9f361753b826922
+Block was generating for 2 seconds
+Block:
+Id: 5
+Timestamp: 1637002038484
+Magic number: 1027061692
+Hash of the previous block:
+00f066f6325aabb2882b96640e789fb4e987c4ce6d30f5f5f9f361753b826922
+Hash of the block:
+007134780ecdf7512dad82590cdb179f975df5d4023e7963f0e07b7eaa7f8afd
+Block was generating for 2 seconds

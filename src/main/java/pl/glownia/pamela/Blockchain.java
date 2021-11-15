@@ -1,5 +1,6 @@
 package pl.glownia.pamela;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,13 @@ class Blockchain {
     }
 
     private List<Block> createBlockchain() {
+        Instant startTime = Instant.now();
         int numberOfZeros = new Input().takeNumberFromUser();
         for (int i = 0; i < 5; i++) {
             if (i == 0) {
-                blockchain.add(BlockFactory.createInstance(i, numberOfZeros, "0"));
+                blockchain.add(BlockFactory.createInstance(i, numberOfZeros, "0", startTime, Instant.now()));
             } else {
-                blockchain.add(BlockFactory.createInstance(i, numberOfZeros, blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock()));
+                blockchain.add(BlockFactory.createInstance(i, numberOfZeros, blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock(), startTime, Instant.now()));
             }
         }
         return blockchain;

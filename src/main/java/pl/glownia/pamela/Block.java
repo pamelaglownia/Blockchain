@@ -1,7 +1,5 @@
 package pl.glownia.pamela;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.Date;
 
 class Block {
@@ -10,15 +8,14 @@ class Block {
     private final long magicNumber;
     private final String hashOfPreviousBlock;
     private final String hashOfCurrentBlock;
-    private final long elapsedTimeToGenerateBlock;
+    private long elapsedTimeToGenerateBlock;
 
-    Block(int id, int numberOfZeros, String hashOfPreviousBlock, Instant startTime, Instant finishTime) {
+    Block(int id, int numberOfZeros, String hashOfPreviousBlock) {
         this.id = id;
         this.timestamp = new Date().getTime();
         this.magicNumber = HashGenerator.generateMagicNumber(numberOfZeros);
         this.hashOfPreviousBlock = hashOfPreviousBlock;
         this.hashOfCurrentBlock = HashGenerator.generateHashOfBlock(String.valueOf(magicNumber));
-        this.elapsedTimeToGenerateBlock = measureTimeToGenerateBlock(startTime, finishTime);
     }
 
     String getHashOfPreviousBlock() {
@@ -29,8 +26,8 @@ class Block {
         return hashOfCurrentBlock;
     }
 
-    long measureTimeToGenerateBlock(Instant startTime, Instant finishTime) {
-        return Duration.between(startTime, finishTime).toSeconds();
+    public void setElapsedTimeToGenerateBlock(long elapsedTimeToGenerateBlock) {
+        this.elapsedTimeToGenerateBlock = elapsedTimeToGenerateBlock;
     }
 
     @Override

@@ -12,21 +12,28 @@ class Blockchain {
         blockchain = new ArrayList<>();
     }
 
-    private List<Block> createBlockchain() {
-        Instant startTime = Instant.now();
-        int numberOfZeros = new Input().takeNumberFromUser();
-        for (int i = 0; i < 5; i++) {
-            if (i == 0) {
-                blockchain.add(BlockFactory.createInstance(i, numberOfZeros, "0"));
-            } else {
-                blockchain.add(BlockFactory.createInstance(i, numberOfZeros, blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock()));
-            }
-            Instant finishTime = Instant.now();
-            BlockFactory.writeFile(blockchain.get(i));
-            blockchain.get(i).setElapsedTimeToGenerateBlock(Duration.between(startTime, finishTime).toSeconds());
+    int getNewBlockId() {
+        return blockchain.size();
+    }
 
+    String getPreviousHash() {
+        if (blockchain.isEmpty()) {
+            return "0";
         }
-        return blockchain;
+        return blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock();
+    }
+
+    void calculateElapsedTime(int blockId, Instant startTime) {
+        Instant finishTime = Instant.now();
+        blockchain.get(blockId).setElapsedTimeToGenerateBlock(Duration.between(startTime, finishTime).toSeconds());
+    }
+
+    void addBlockToBlockChain(int numberOfZeros) {
+        Instant startTime = Instant.now();
+        int id = getNewBlockId();
+        blockchain.add(BlockFactory.createInstance(id, numberOfZeros, getPreviousHash()));
+        calculateElapsedTime(id, startTime);
+        BlockFactory.writeFile(blockchain.get(id));
     }
 
     private boolean isValid() {
@@ -40,7 +47,6 @@ class Blockchain {
     }
 
     void printBlockchain() {
-        blockchain = createBlockchain();
         if (isValid()) {
             Printer.printBlockchain(blockchain);
         }

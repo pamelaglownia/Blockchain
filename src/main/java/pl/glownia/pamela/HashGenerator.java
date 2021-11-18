@@ -10,25 +10,24 @@ class HashGenerator {
         return new Random().nextInt(Integer.MAX_VALUE);
     }
 
-    private static String generateHashPrefix(int numbersOfZeros) {
+    private static String generateHashPrefix() {
+        int numbersOfZeros = new Random().nextInt(3);
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < numbersOfZeros; i++) {
-            stringBuilder.append("0");
-        }
+        stringBuilder.append("0".repeat(numbersOfZeros));
         return stringBuilder.toString();
     }
 
-    static long generateMagicNumber(int numbersOfZeros) {
+    static long generateMagicNumber() {
         int magicNumber;
         String hash;
-        if (numbersOfZeros == 0) {
+        String prefix = generateHashPrefix();
+        if (prefix.length() == 0) {
             return generateRandomNumber();
         }
-        String prefix = generateHashPrefix(numbersOfZeros);
         do {
             magicNumber = generateRandomNumber();
             hash = generateHashOfBlock(String.valueOf(magicNumber));
-        } while (!hash.substring(0, numbersOfZeros).equals(prefix));
+        } while (!hash.startsWith(prefix));
         return magicNumber;
     }
 

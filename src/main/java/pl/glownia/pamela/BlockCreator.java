@@ -9,7 +9,7 @@ class BlockCreator implements Command {
     }
 
     @Override
-    public void execute(int numberOfZeros) {
-        blockchain.addBlockToBlockChain(numberOfZeros);
+    public void execute() {
+        blockchain.addBlockToBlockChain();
     }
 }

@@ -7,7 +7,7 @@ class Controller {
         this.command = command;
     }
 
-    void executeCommand(int numberOfZeros) {
-        command.execute(numberOfZeros);
+    void executeCommand() {
+        command.execute();
     }
 }

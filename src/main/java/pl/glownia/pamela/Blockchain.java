@@ -28,12 +28,12 @@ class Blockchain {
         blockchain.get(blockId).setElapsedTimeToGenerateBlock(Duration.between(startTime, finishTime).toSeconds());
     }
 
-    void addBlockToBlockChain(int numberOfZeros) {
+    void addBlockToBlockChain() {
         Instant startTime = Instant.now();
-        int id = getNewBlockId();
-        blockchain.add(BlockFactory.createInstance(id, numberOfZeros, getPreviousHash()));
-        calculateElapsedTime(id, startTime);
-        BlockFactory.writeFile(blockchain.get(id));
+        int blockId = getNewBlockId();
+        blockchain.add(BlockFactory.createInstance(blockId, getPreviousHash()));
+        calculateElapsedTime(blockId, startTime);
+        BlockFactory.writeFile(blockchain.get(blockId));
     }
 
     private boolean isValid() {

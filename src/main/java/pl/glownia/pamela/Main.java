@@ -9,7 +9,7 @@ public class Main {
         Blockchain blockchain = new Blockchain();
         Command blockCreating = new BlockCreator(blockchain);
         ExecutorService executorService = Executors.newFixedThreadPool(5);
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i < 5; i++) {
             executorService.execute(new MinerThread(controller, blockchain, blockCreating));
             try {
                 Thread.sleep(1000);
@@ -17,6 +17,7 @@ public class Main {
                 e.printStackTrace();
             }
         }
+        executorService.shutdown();
         blockchain.printBlockchain();
     }
 }

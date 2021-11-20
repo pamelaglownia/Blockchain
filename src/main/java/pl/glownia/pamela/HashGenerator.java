@@ -10,17 +10,16 @@ class HashGenerator {
         return new Random().nextInt(Integer.MAX_VALUE);
     }
 
-    private static String generateHashPrefix() {
-        int numbersOfZeros = new Random().nextInt(3);
+    private static String generateHashPrefix(int numbersOfZeros) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("0".repeat(numbersOfZeros));
         return stringBuilder.toString();
     }
 
-    static long generateMagicNumber() {
+    static long generateMagicNumber(int numbersOfZeros) {
         int magicNumber;
         String hash;
-        String prefix = generateHashPrefix();
+        String prefix = generateHashPrefix(numbersOfZeros);
         if (prefix.length() == 0) {
             return generateRandomNumber();
         }

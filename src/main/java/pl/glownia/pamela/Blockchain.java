@@ -1,6 +1,5 @@
 package pl.glownia.pamela;
 
-import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,27 +11,34 @@ class Blockchain {
         blockchain = new ArrayList<>();
     }
 
-    int getNewBlockId() {
+    private int getNewBlockId() {
         return blockchain.size();
     }
 
-    String getPreviousHash() {
+    private String getPreviousHash() {
         if (blockchain.isEmpty()) {
             return "0";
         }
         return blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock();
     }
 
-    void calculateElapsedTime(int blockId, Instant startTime) {
-        Instant finishTime = Instant.now();
-        blockchain.get(blockId).setElapsedTimeToGenerateBlock(Duration.between(startTime, finishTime).toSeconds());
+    private int calculateNumberOfZeros(int blockId) {
+        if (blockId == 0) {
+            return 0;
+        } else if (blockchain.get(blockId - 1).getElapsedTimeToGenerateBlock() < 15) {
+            return blockchain.get(blockId - 1).getNumberOfZeros() + 1;
+        } else if (blockchain.get(blockId - 1).getElapsedTimeToGenerateBlock() <= 60) {
+            return blockchain.get(blockId - 1).getNumberOfZeros();
+        } else {
+            return blockchain.get(blockId - 1).getNumberOfZeros() - 1;
+        }
     }
 
-    void addBlockToBlockChain() {
+    void addBlockToBlockchain() {
         Instant startTime = Instant.now();
         int blockId = getNewBlockId();
-        blockchain.add(BlockFactory.createInstance(blockId, getPreviousHash()));
-        calculateElapsedTime(blockId, startTime);
+        blockchain.add(BlockFactory.createInstance(blockId, calculateNumberOfZeros(blockId), getPreviousHash()));
+        BlockFactory.calculateElapsedTime(blockchain.get(blockId), startTime);
         BlockFactory.writeFile(blockchain.get(blockId));
     }
 

@@ -10,6 +10,6 @@ class BlockCreator implements Command {
 
     @Override
     public void execute() {
-        blockchain.addBlockToBlockChain();
+        blockchain.addBlockToBlockchain();
     }
 }

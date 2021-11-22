@@ -4,10 +4,10 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-class Blockchain {
+public class Blockchain {
     List<Block> blockchain;
 
-    Blockchain() {
+    public Blockchain() {
         blockchain = new ArrayList<>();
     }
 
@@ -25,16 +25,13 @@ class Blockchain {
     private int calculateNumberOfZeros(int blockId) {
         if (blockId == 0) {
             return 0;
-        } else if (blockchain.get(blockId - 1).getElapsedTimeToGenerateBlock() < 15) {
-            return blockchain.get(blockId - 1).getNumberOfZeros() + 1;
-        } else if (blockchain.get(blockId - 1).getElapsedTimeToGenerateBlock() <= 60) {
-            return blockchain.get(blockId - 1).getNumberOfZeros();
-        } else {
-            return blockchain.get(blockId - 1).getNumberOfZeros() - 1;
         }
+        return blockchain.get(blockId - 1).getElapsedTimeToGenerateBlock() < 15 ?
+                blockchain.get(blockId - 1).getNumberOfZeros() + 1 : blockchain.get(blockId - 1).getElapsedTimeToGenerateBlock() >= 60 ?
+                blockchain.get(blockId - 1).getNumberOfZeros() - 1 : blockchain.get(blockId - 1).getNumberOfZeros();
     }
 
-    void addBlockToBlockchain() {
+    public void addBlockToBlockchain() {
         Instant startTime = Instant.now();
         int blockId = getNewBlockId();
         blockchain.add(BlockFactory.createInstance(blockId, calculateNumberOfZeros(blockId), getPreviousHash()));
@@ -52,7 +49,7 @@ class Blockchain {
         return true;
     }
 
-    void printBlockchain() {
+    public void printBlockchain() {
         if (isValid()) {
             Printer.printBlockchain(blockchain);
         }

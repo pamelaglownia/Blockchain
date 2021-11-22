@@ -1,4 +1,6 @@
-package pl.glownia.pamela;
+package pl.glownia.pamela.threadmanaging;
+
+import pl.glownia.pamela.Blockchain;
 
 class BlockCreator implements Command {
 

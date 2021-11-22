@@ -1,23 +1,9 @@
 package pl.glownia.pamela;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import pl.glownia.pamela.threadmanaging.BlockchainGenerator;
 
 public class Main {
     public static void main(String[] args) {
-        Controller controller = new Controller();
-        Blockchain blockchain = new Blockchain();
-        Command blockCreating = new BlockCreator(blockchain);
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
-        for (int i = 0; i < 5; i++) {
-            executorService.execute(new MinerThread(controller, blockchain, blockCreating));
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        executorService.shutdown();
-        blockchain.printBlockchain();
+        new BlockchainGenerator().generateBlockchain();
     }
 }

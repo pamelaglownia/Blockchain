@@ -1,4 +1,4 @@
-package pl.glownia.pamela;
+package pl.glownia.pamela.threadmanaging;
 
 interface Command {
 

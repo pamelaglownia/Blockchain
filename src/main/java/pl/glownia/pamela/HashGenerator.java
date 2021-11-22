@@ -11,9 +11,7 @@ class HashGenerator {
     }
 
     private static String generateHashPrefix(int numbersOfZeros) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("0".repeat(numbersOfZeros));
-        return stringBuilder.toString();
+        return "0".repeat(numbersOfZeros);
     }
 
     static long generateMagicNumber(int numbersOfZeros) {

@@ -11,6 +11,14 @@ class BlockFactory {
         return new Block(id, numbersOfZeros, previousHash);
     }
 
+    static void writeAMessage(Block block) {
+        if (block.getId() == 0) {
+            block.setChatMessage("no messages");
+        } else {
+            block.setChatMessage(new ChatSimulator().generateRandomMessage());
+        }
+    }
+
     static void calculateElapsedTime(Block block, Instant startTime) {
         Instant finishTime = Instant.now();
         block.setElapsedTimeToGenerateBlock(Duration.between(startTime, finishTime).toSeconds());

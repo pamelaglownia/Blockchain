@@ -10,6 +10,7 @@ class Block {
     private final int numberOfZeros;
     private final String hashOfPreviousBlock;
     private final String hashOfCurrentBlock;
+    private String chatMessage;
     private long elapsedTimeToGenerateBlock;
 
     Block(int id, int numberOfZeros, String hashOfPreviousBlock) {
@@ -32,6 +33,14 @@ class Block {
 
     String getHashOfCurrentBlock() {
         return hashOfCurrentBlock;
+    }
+
+    public void setChatMessage(String chatMessage) {
+        this.chatMessage = chatMessage;
+    }
+
+    public int getId() {
+        return id;
     }
 
     long getElapsedTimeToGenerateBlock() {
@@ -61,7 +70,10 @@ class Block {
                 "\nMagic number: " + magicNumber +
                 "\nHash of the previous block:\n" + hashOfPreviousBlock +
                 "\nHash of the block:\n" + hashOfCurrentBlock +
+                "\nBlock data:\n" + chatMessage +
                 "\nBlock was generating for " + elapsedTimeToGenerateBlock + " seconds" +
                 "\n" + setMessage() + "\n";
     }
+
+
 }

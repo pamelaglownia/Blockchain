@@ -35,6 +35,7 @@ public class Blockchain {
         Instant startTime = Instant.now();
         int blockId = getNewBlockId();
         blockchain.add(BlockFactory.createInstance(blockId, calculateNumberOfZeros(blockId), getPreviousHash()));
+        BlockFactory.writeAMessage(blockchain.get(blockId));
         BlockFactory.calculateElapsedTime(blockchain.get(blockId), startTime);
         BlockFactory.writeFile(blockchain.get(blockId));
     }

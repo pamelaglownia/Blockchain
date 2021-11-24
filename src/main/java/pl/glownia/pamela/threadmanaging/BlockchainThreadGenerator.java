@@ -1,11 +1,11 @@
 package pl.glownia.pamela.threadmanaging;
 
-import pl.glownia.pamela.Blockchain;
+import pl.glownia.pamela.blockmanager.Blockchain;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class BlockchainGenerator {
+public class BlockchainThreadGenerator {
 
     public void generateBlockchain() {
         Controller controller = new Controller();

@@ -1,4 +1,6 @@
-package pl.glownia.pamela;
+package pl.glownia.pamela.blockmanager;
+
+import pl.glownia.pamela.chatsimulator.ChatSimulator;
 
 import java.io.File;
 import java.time.Duration;
@@ -21,7 +23,7 @@ class BlockFactory {
 
     static void calculateElapsedTime(Block block, Instant startTime) {
         Instant finishTime = Instant.now();
-        block.setElapsedTimeToGenerateBlock(Duration.between(startTime, finishTime).toSeconds());
+        block.setElapsedTimeToGenerateBlock(Duration.between(startTime, finishTime).toMillis());
     }
 
     static void writeFile(Block block) {

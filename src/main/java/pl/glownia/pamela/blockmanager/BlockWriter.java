@@ -1,4 +1,4 @@
-package pl.glownia.pamela;
+package pl.glownia.pamela.blockmanager;
 
 import java.io.File;
 import java.io.FileWriter;

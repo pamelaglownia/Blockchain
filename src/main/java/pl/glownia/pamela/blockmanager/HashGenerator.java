@@ -1,4 +1,4 @@
-package pl.glownia.pamela;
+package pl.glownia.pamela.blockmanager;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

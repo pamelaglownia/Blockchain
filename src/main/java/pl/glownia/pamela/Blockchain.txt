@@ -1,45 +1,65 @@
 Block:
+Created by miner # 12
 Id: 1
-Timestamp: 1637002038327
-Magic number: 571423728
+Timestamp: 1637777294895
+Magic number: 519323006
 Hash of the previous block:
 0
 Hash of the block:
-00b0be363fe3414d780a024375e355d0ada6695f575028f75c4ea056e763d1cd
-Block was generating for 1 seconds
+993ea8c8f33780a823e768eb292a225ad12178613767cb1f356ad2c84708408a
+Block data:
+no messages
+Block was generating for 25 milliseconds
+Number of zeros stays the same
 Block:
+Created by miner # 14
 Id: 2
-Timestamp: 1637002038473
-Magic number: 1345046413
+Timestamp: 1637777295885
+Magic number: 408936894
 Hash of the previous block:
-00b0be363fe3414d780a024375e355d0ada6695f575028f75c4ea056e763d1cd
+993ea8c8f33780a823e768eb292a225ad12178613767cb1f356ad2c84708408a
 Hash of the block:
-00989c46d55e08ae54f0c55a225c5f55c571c5ec441af3962f5f510c40f980f1
-Block was generating for 2 seconds
+69cf2c60de0d6f64d4f0b667beba96f765a1ff2527ed0fd10873606f3ffe6d0c
+Block data:
+Emma: Hello! Have a nice day!
+Block was generating for 32 milliseconds
+Number of zeros stays the same
 Block:
+Created by miner # 15
 Id: 3
-Timestamp: 1637002038477
-Magic number: 1017028861
+Timestamp: 1637777296886
+Magic number: 679385364
 Hash of the previous block:
-00989c46d55e08ae54f0c55a225c5f55c571c5ec441af3962f5f510c40f980f1
+69cf2c60de0d6f64d4f0b667beba96f765a1ff2527ed0fd10873606f3ffe6d0c
 Hash of the block:
-00cc85a8315584be1ed24457a136295b1e3c459b33f4bee792204c7112a28f5f
-Block was generating for 2 seconds
+0446e54ee52855cae01f9b51c0da59fdb2e26a89062fcebd02a21fbed19fd416
+Block data:
+Tom: Nice chat
+Block was generating for 0 milliseconds
+Number of zeros was increased to 1
 Block:
+Created by miner # 16
 Id: 4
-Timestamp: 1637002038480
-Magic number: 378525148
+Timestamp: 1637777297887
+Magic number: 951678190
 Hash of the previous block:
-00cc85a8315584be1ed24457a136295b1e3c459b33f4bee792204c7112a28f5f
+0446e54ee52855cae01f9b51c0da59fdb2e26a89062fcebd02a21fbed19fd416
 Hash of the block:
-00f066f6325aabb2882b96640e789fb4e987c4ce6d30f5f5f9f361753b826922
-Block was generating for 2 seconds
+06f497e9e2f385652113a4839c0e224efa74785392fa3310654365c8a78902d5
+Block data:
+Alice: Hello! Have a nice day!
+Block was generating for 1 milliseconds
+Number of zeros was increased to 2
 Block:
+Created by miner # 17
 Id: 5
-Timestamp: 1637002038484
-Magic number: 1027061692
+Timestamp: 1637777298888
+Magic number: 1112201557
 Hash of the previous block:
-00f066f6325aabb2882b96640e789fb4e987c4ce6d30f5f5f9f361753b826922
+06f497e9e2f385652113a4839c0e224efa74785392fa3310654365c8a78902d5
 Hash of the block:
-007134780ecdf7512dad82590cdb179f975df5d4023e7963f0e07b7eaa7f8afd
-Block was generating for 2 seconds
+0007e94f3c24af5d49933246e512851f9d125f43ae7090f215d16c875458765c
+Block data:
+Alice: Hello! Have a nice day!
+Block was generating for 9 milliseconds
+Number of zeros was increased to 3

@@ -1,4 +1,4 @@
-package pl.glownia.pamela;
+package pl.glownia.pamela.blockmanager;
 
 import java.util.Date;
 
@@ -23,7 +23,12 @@ class Block {
         this.hashOfCurrentBlock = HashGenerator.generateHashOfBlock(String.valueOf(magicNumber));
     }
 
-    public int getNumberOfZeros() {
+
+    int getId() {
+        return id;
+    }
+
+    int getNumberOfZeros() {
         return numberOfZeros;
     }
 
@@ -35,12 +40,8 @@ class Block {
         return hashOfCurrentBlock;
     }
 
-    public void setChatMessage(String chatMessage) {
+    void setChatMessage(String chatMessage) {
         this.chatMessage = chatMessage;
-    }
-
-    public int getId() {
-        return id;
     }
 
     long getElapsedTimeToGenerateBlock() {
@@ -52,13 +53,8 @@ class Block {
     }
 
     private String setMessage() {
-        if (elapsedTimeToGenerateBlock < 15) {
-            return "N was increased to " + (numberOfZeros + 1);
-        } else if (elapsedTimeToGenerateBlock <= 60) {
-            return "N stays the same";
-        } else {
-            return "N was decreased by 1";
-        }
+        return elapsedTimeToGenerateBlock < 15 ? "Number of zeros was increased to " + (numberOfZeros + 1)
+                : elapsedTimeToGenerateBlock <= 60 ? "Number of zeros stays the same" : "Number of zeros was decreased by 1";
     }
 
     @Override
@@ -71,9 +67,7 @@ class Block {
                 "\nHash of the previous block:\n" + hashOfPreviousBlock +
                 "\nHash of the block:\n" + hashOfCurrentBlock +
                 "\nBlock data:\n" + chatMessage +
-                "\nBlock was generating for " + elapsedTimeToGenerateBlock + " seconds" +
+                "\nBlock was generating for " + elapsedTimeToGenerateBlock + " milliseconds" +
                 "\n" + setMessage() + "\n";
     }
-
-
 }

@@ -1,7 +1,7 @@
-package pl.glownia.pamela;
+package pl.glownia.pamela.chatsimulator;
 
-public class ChatMessage {
-    public ChatMessage(String user, String message) {
+ class ChatMessage {
+     ChatMessage(String user, String message) {
         this.user = user;
         this.message = message;
     }

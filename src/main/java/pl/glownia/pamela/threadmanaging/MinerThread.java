@@ -1,6 +1,6 @@
 package pl.glownia.pamela.threadmanaging;
 
-import pl.glownia.pamela.Blockchain;
+import pl.glownia.pamela.blockmanager.Blockchain;
 
 class MinerThread implements Runnable {
     Controller controller;

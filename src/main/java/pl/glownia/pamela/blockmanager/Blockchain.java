@@ -1,4 +1,4 @@
-package pl.glownia.pamela;
+package pl.glownia.pamela.blockmanager;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -16,10 +16,7 @@ public class Blockchain {
     }
 
     private String getPreviousHash() {
-        if (blockchain.isEmpty()) {
-            return "0";
-        }
-        return blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock();
+        return blockchain.isEmpty() ? "0" : blockchain.get(blockchain.size() - 1).getHashOfCurrentBlock();
     }
 
     private int calculateNumberOfZeros(int blockId) {
@@ -43,7 +40,6 @@ public class Blockchain {
     private boolean isValid() {
         for (int i = 1; i < blockchain.size(); i++) {
             if (!(blockchain.get(i - 1).getHashOfCurrentBlock().equals(blockchain.get(i).getHashOfPreviousBlock()))) {
-                System.out.println("Blockchain is invalid.");
                 return false;
             }
         }
@@ -53,6 +49,8 @@ public class Blockchain {
     public void printBlockchain() {
         if (isValid()) {
             Printer.printBlockchain(blockchain);
+        } else {
+            System.out.println("Blockchain is invalid.");
         }
     }
 }

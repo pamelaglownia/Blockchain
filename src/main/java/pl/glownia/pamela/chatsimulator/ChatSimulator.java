@@ -1,4 +1,4 @@
-package pl.glownia.pamela;
+package pl.glownia.pamela.chatsimulator;
 
 import java.util.HashSet;
 import java.util.List;
@@ -18,7 +18,7 @@ public class ChatSimulator {
         return messages;
     }
 
-    String generateRandomMessage() {
+    public String generateRandomMessage() {
         Set<ChatMessage> messages = generateMessages();
         return messages.iterator().next().toString();
     }

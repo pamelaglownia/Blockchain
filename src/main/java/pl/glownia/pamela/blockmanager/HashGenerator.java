@@ -11,7 +11,10 @@ class HashGenerator {
     }
 
     private static String generateHashPrefix(int numbersOfZeros) {
-        return "0".repeat(numbersOfZeros);
+        if (numbersOfZeros > 0) {
+            return "0".repeat(numbersOfZeros);
+        }
+        return "";
     }
 
     static long generateMagicNumber(int numbersOfZeros) {

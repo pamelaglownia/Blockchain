@@ -1,16 +1,16 @@
 package pl.glownia.pamela.chatsimulator;
 
- class ChatMessage {
-     ChatMessage(String user, String message) {
-        this.user = user;
-        this.message = message;
-    }
-
+class ChatMessage {
     private final String user;
-    private final String message;
+    private final String text;
+
+    ChatMessage(String user, String text) {
+        this.user = user;
+        this.text = text;
+    }
 
     @Override
     public String toString() {
-        return user + ": " + message;
+        return user + ": " + text;
     }
 }

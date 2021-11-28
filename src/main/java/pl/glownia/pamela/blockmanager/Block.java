@@ -60,14 +60,15 @@ class Block {
     @Override
     public String toString() {
         return "Block:" +
-                "\nCreated by miner # " + miner +
+                "\nCreated by miner #" + miner +
+                "\nMiner #" + miner + " gets 100 Virtual Coins" +
                 "\nId: " + (id + 1) +
                 "\nTimestamp: " + timestamp +
                 "\nMagic number: " + magicNumber +
                 "\nHash of the previous block:\n" + hashOfPreviousBlock +
                 "\nHash of the block:\n" + hashOfCurrentBlock +
                 "\nBlock data:\n" + chatMessage +
-                "\nBlock was generating for " + elapsedTimeToGenerateBlock + " milliseconds" +
+                "\nBlock was generating for " + elapsedTimeToGenerateBlock + " miliseconds" +
                 "\n" + setMessage() + "\n";
     }
 }

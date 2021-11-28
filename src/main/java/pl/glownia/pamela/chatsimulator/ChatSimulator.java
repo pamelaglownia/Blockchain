@@ -6,8 +6,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class ChatSimulator {
-    private final List<String> users = List.of("Alice", "Tom", "Rob", "Emma", "Lisa", "Andy", "Peter", "Anna", "Mary");
-    private final List<String> messages = List.of("Hello! Have a nice day!", "Today is my lucky day!", "Nice chat", "I love potatoes", "bla bla bla", "My boss is the best", "How do you do?");
+    private final List<String> users = List.of("Alice", "Tom", "Rob", "Emma", "Lisa", "Andy", "Peter", "Anna", "Mary", "Gary", "Alex");
 
     private String getRandomData(List<String> list) {
         return list.get(new Random().nextInt(list.size()));
@@ -19,14 +18,13 @@ public class ChatSimulator {
         int identifier = 1;
         for (int i = 0; i < 5; i++) {
             try {
-                String text = getRandomData(messages);
-                ChatMessage chatMessage = new ChatMessage(getRandomData(users), text, identifier);
+                ChatMessage chatMessage = new ChatMessage(getRandomData(users), new Random().nextInt(100) +1, identifier, getRandomData(users));
                 chat.add(chatMessage);
                 String privateKeyPath = "src/main/java/pl/glownia/pamela/chatsimulator/privatekeys/privateKey" + identifier + ".txt";
                 String publicKeyPath = "src/main/java/pl/glownia/pamela/chatsimulator/publickeys/publicKey" + identifier + ".txt";
                 String signedDataPath = "src/main/java/pl/glownia/pamela/chatsimulator/signeddata/signedData" + identifier + ".txt";
                 keysManager.writeToAFile(privateKeyPath, publicKeyPath);
-                chatMessage.setSignature(keysManager.signTheMessage(text, privateKeyPath, signedDataPath));
+                chatMessage.setSignature(keysManager.signTheMessage(chatMessage.toString(), privateKeyPath, signedDataPath));
             } catch (Exception exception) {
                 exception.printStackTrace();
             }

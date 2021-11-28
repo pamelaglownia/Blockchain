@@ -6,7 +6,7 @@ class Printer {
 
     static void printBlockchain(List<Block> blockchain) {
         blockchain.stream()
-                .limit(5)
+                .limit(15)
                 .forEach(System.out::println);
     }
 }

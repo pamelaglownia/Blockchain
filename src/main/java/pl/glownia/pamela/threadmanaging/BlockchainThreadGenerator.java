@@ -11,8 +11,8 @@ public class BlockchainThreadGenerator {
         Controller controller = new Controller();
         Blockchain blockchain = new Blockchain();
         Command blockCreating = new BlockCreator(blockchain);
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
-        for (int i = 0; i < 5; i++) {
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        for (int i = 0; i < 15; i++) {
             executorService.execute(new MinerThread(controller, blockchain, blockCreating));
             try {
                 Thread.sleep(1000);

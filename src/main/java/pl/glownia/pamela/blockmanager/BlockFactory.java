@@ -15,7 +15,7 @@ class BlockFactory {
 
     static void writeAMessage(Block block) {
         if (block.getId() == 0) {
-            block.setChatMessage("no messages");
+            block.setChatMessage("No transactions");
         } else {
             block.setChatMessage(new ChatSimulator().generateRandomMessage());
         }
